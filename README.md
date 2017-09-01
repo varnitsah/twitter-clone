@@ -1,24 +1,37 @@
-# README
+# Ruby on Rails Tutorial sample application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application will attempt to make a limited functional clone of twitter's tweet system.
 
-Things you may want to cover:
+# Disclaimer
 
-* Ruby version
+I claim no ownership of the idea behind the functionality of this app. It may not be used for any commercial purposes in any condition.
 
-* System dependencies
 
-* Configuration
+## Getting started
 
-* Database creation
+To get started with the app, clone the repo and then install the needed gems:
 
-* Database initialization
+```
+$ bundle install --without production
+```
 
-* How to run the test suite
+Next, migrate the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rails db:migrate
+```
 
-* Deployment instructions
+Finally, run the test suite to verify that everything is working correctly:
 
-* ...
+```
+$ rails test
+```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```
+$ rails server
+```
+
+For more information, see the
+[*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
