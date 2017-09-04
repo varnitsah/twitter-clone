@@ -1,6 +1,12 @@
-<% provide(:title, "") %>
+<div class="center jumbotron">
+  <h1>Welcome to the Twitter Clone</h1>
 
-<h1>Sample home</h1>
-<p>
-This is the home page for the twitter clone application
-</p>
+  <h2>
+    This is the home page.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("bear.jpg", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
