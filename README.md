@@ -2,11 +2,17 @@
 
 The application will attempt to make a limited functional clone of twitter's tweet system.
 
+
 # Disclaimer
 
 I claim no ownership of the idea behind the functionality of this app. It may not be used for any commercial purposes in any condition.
 
-
+## Important
+In config/puma.rb, comment out 
+```
+workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+```
+during development on Windows. Make Sure to remove the comment while deploying
 ## Getting started
 
 To get started with the app, clone the repo and then install the needed gems:
