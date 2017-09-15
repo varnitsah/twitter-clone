@@ -38,3 +38,41 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 $ rails server
 ```
+
+### Confirmation Emails 
+#### Local
+When you sign up as a new user on localhost:3000, the activation email format will be available in the server log
+```
+<a href="https://localhost:3000/account_activations/hc6uXSa5xBpxSVu04oioxg/edit?email=sample%40example.com">Activate</a>
+  </body>
+</html>
+```
+Copy the link into the browser and open. Open in the same tab where you signed up if you get a protocol error in the browser. 
+
+
+#### Enable send grid on heroku
+```
+$ heroku addons:create sendgrid:starter
+```
+Add to config/environments/production.rb 
+Input your heroku app name
+```
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.delivery_method = :smtp
+host = '<your heroku app>.herokuapp.com'
+config.action_mailer.default_url_options = { host: host }
+ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}
+```
+The user_name and password are set using the ENV variable
+```
+$ heroku config:get SENDGRID_USERNAME
+$ heroku config:get SENDGRID_PASSWORD
+```
