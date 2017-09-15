@@ -39,7 +39,7 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 
-### Confirmation Emails 
+### Account Activation and Password Reset Emails 
 #### Local
 When you sign up as a new user on localhost:3000, the activation email format will be available in the server log
 ```
