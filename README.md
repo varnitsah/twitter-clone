@@ -76,3 +76,16 @@ The user_name and password are set using the ENV variable
 $ heroku config:get SENDGRID_USERNAME
 $ heroku config:get SENDGRID_PASSWORD
 ```
+
+## Images
+
+We use evn variables to store images on Amazon's S3 in production.  
+- config/initializers/carrier_wave.rb
+
+Setup the environment variables in heroku
+```
+$ heroku config:set S3_ACCESS_KEY=<access key>
+$ heroku config:set S3_SECRET_KEY=<secret key>
+$ heroku config:set S3_BUCKET=<bucket name>
+$ heroku config:set S3_REGION=<bucket region>
+```
